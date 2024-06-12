@@ -18,13 +18,8 @@ router.post('/new',[
 //Apuestas NBA
 router.get('/', listarBet)
 router.get('/:id', editarBet)
-<<<<<<< HEAD
 router.put('/editar/:id', editarBet)
 router.delete('/eliminar/:id', eliminarBet)
-=======
-router.put('/editar/:id',auth, editarBet)
-router.delete('/eliminar/:id',auth, eliminarBet)
->>>>>>> 44b9aa6c0575019fe4799d3c6d3e24b2cae5574b
 
 //Apuestas MLB
 

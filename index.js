@@ -5,6 +5,9 @@ const express = require('express');
 
 const cors = require('cors')
 
+const bodyParse =require("body-parser")
+app.use(bodyParse.urlencoded({extended: true}))
+
 dbConnection()
 require('dotenv').config()
 
