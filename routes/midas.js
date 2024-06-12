@@ -1,0 +1,33 @@
+
+
+const {Router} = require('express')
+const { crearBet, listarBet, editarBet, eliminarBet } = require('../controllers/midas')
+const { check } = require('express-validator')
+const auth = require('../middlewares/auth')
+
+const router = Router()
+
+router.post('/new',[
+    check('name', "Se requiere el nombre del apostador").not().isEmpty(),
+    check('description', "Se require apuesta").not().isEmpty(),
+    check('cuota', "Se require cuota Ej: 2.0 ").not().isEmpty(),
+    check('fecha', "Se require apuesta").not().isEmpty(),
+    check('stake', "Se require Stake").not().isEmpty()
+] ,crearBet)
+
+//Apuestas NBA
+router.get('/', listarBet)
+router.get('/:id', editarBet)
+<<<<<<< HEAD
+router.put('/editar/:id', editarBet)
+router.delete('/eliminar/:id', eliminarBet)
+=======
+router.put('/editar/:id',auth, editarBet)
+router.delete('/eliminar/:id',auth, eliminarBet)
+>>>>>>> 44b9aa6c0575019fe4799d3c6d3e24b2cae5574b
+
+//Apuestas MLB
+
+
+
+module.exports = router;
