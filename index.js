@@ -11,14 +11,10 @@ const port = process.env.PORT || 3609;
 const app = express();
 
 // Configurar CORS para permitir solo tu dominio
-const corsOptions = {
-  origin: 'https://stats-nba.netlify.app', // Especifica tu dominio
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
-  allowedHeaders: ['Content-Type', 'Authorization'], // Encabezados permitidos
-};
+
 
 // Middleware de CORS
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Middleware de JSON
 app.use(express.json());
