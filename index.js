@@ -1,4 +1,5 @@
 const { dbConnection } = require('./db/config');
+
 const express = require('express');
 
 //Cors permite que mi cliente se conecte desde otro servidor
@@ -9,8 +10,6 @@ dbConnection()
 require('dotenv').config()
 
 const port = process.env.PORT || 3609;
-
-
 
 // Crear Server
 
@@ -26,12 +25,14 @@ app.use(express.static('public'))
 app.use('/api/midas', require('./routes/midas'))
 app.use('/api/mlb', require('./routes/mlb'))
 app.use('/api/uefa', require('./routes/uefa'))
+app.use('/api/uefa', require('./routes/uefa'))
+app.use('/api/prediccions', require('./routes/prediccions'))
+
+
 
 //Usuarios
 
 app.use('/api/usuarios', require('./routes/usuarios'))
-
-
 
 //Escuchar las peticiones
 app.listen( port, ()=>{

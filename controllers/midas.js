@@ -55,6 +55,39 @@ const listarBet = async (req, res) => {
     }
 };
 
+const listarBetPorId = async (req, res) => {
+    const { gameId } = req.params; // Capturamos el gameId desde los parámetros de la URL
+
+    try {
+        // Buscamos la apuesta por gameId
+        const apuesta = await Apuestas.findOne({ gameId });
+
+        // Verificamos si existe una apuesta con ese gameId
+        if (!apuesta) {
+            return res.status(404).json({
+                ok: false,
+                mensaje: `No se encontró una apuesta con el Game ID: ${gameId}`
+            });
+        }
+
+        // Respuesta exitosa
+        return res.status(200).json({
+            ok: true,
+            apuesta
+        });
+    } catch (error) {
+        // Manejo de errores
+        console.error(error.message);
+        return res.status(500).json({
+            ok: false,
+            mensaje: 'Hubo un error al obtener la apuesta'
+        });
+    }
+};
+
+
+
+
 const editarBet = async (req, res, next) => {
     try {
         const  id  = req.params.id;
@@ -114,6 +147,7 @@ module.exports = {
     crearBet,
     listarBet,
     editarBet,
-    eliminarBet
+    eliminarBet,
+    listarBetPorId
 
 };

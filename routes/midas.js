@@ -1,7 +1,7 @@
 
 
 const {Router} = require('express')
-const { crearBet, listarBet, editarBet, eliminarBet } = require('../controllers/midas')
+const { crearBet, listarBet, editarBet, eliminarBet, listarBetPorId } = require('../controllers/midas')
 const { check } = require('express-validator')
 const auth = require('../middlewares/auth')
 
@@ -17,6 +17,7 @@ router.post('/new',[
 
 //Apuestas NBA
 router.get('/', listarBet)
+router.get('/:gameId', listarBetPorId)
 router.get('/:id', editarBet)
 router.put('/editar/:id', editarBet)
 router.delete('/eliminar/:id', eliminarBet)
