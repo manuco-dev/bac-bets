@@ -17,8 +17,8 @@ router.post('/new',[
 
 //Apuestas NBA
 router.get('/', listarBet)
-router.get('/:gameId', listarBetPorId)
 router.get('/:id', editarBet)
+router.get('/prediccion/:gameId', listarBetPorId)
 router.put('/editar/:id', editarBet)
 router.delete('/eliminar/:id', eliminarBet)
 

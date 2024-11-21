@@ -19,7 +19,7 @@ const PrediccionsSchema = Schema({
         default: null    // Si no se asigna, queda como null
     },
     gameId: {
-        type: Number,
+        type: String,
         required: false,
         default: null
     }
