@@ -23,7 +23,7 @@ app.use(express.json());
 app.use('/api/midas', require('./routes/midas'));
 app.use('/api/mlb', require('./routes/mlb'));
 app.use('/api/uefa', require('./routes/uefa'));
-app.use('/api/prediccions', require('./routes/prediccions'));
+
 app.use('/api/usuarios', require('./routes/usuarios'));
 
 // Escuchar las peticiones
