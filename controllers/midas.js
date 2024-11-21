@@ -60,7 +60,7 @@ const listarBetPorId = async (req, res) => {
 
     try {
         // Buscamos la apuesta por gameId
-        const apuesta = await Apuestas.findOne({ gameId });
+        const apuesta = await Apuestas.find({ gameId });
 
         // Verificamos si existe una apuesta con ese gameId
         if (!apuesta) {
